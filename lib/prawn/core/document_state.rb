@@ -74,6 +74,10 @@ module Prawn
         end
       end
 
+      def trim_pages(count)
+        @pages = pages.slice(0, count)
+      end
+
     end
   end
 end

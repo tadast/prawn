@@ -73,6 +73,7 @@ module Prawn
         page.dictionary.data[:Contents] = page.content
 
         self.page_number = shot[:page_number]
+        state.trim_pages(shot[:page_number])
 
         state.store.pages.data[:Kids] = shot[:page_kids].map{|id| state.store[id]}
         state.store.pages.data[:Count] = shot[:page_kids].size

@@ -99,6 +99,18 @@ describe "Prawn::Document#transaction" do
 
   end
 
+  it "should restore page count" do
+    Prawn::Document.new do
+      transaction do
+        start_new_page
+        rollback
+      end
+
+      state.page_count.should == 1
+    end
+
+  end
+
   it "page object should refer to the page_content object after restore" do
 
     Prawn::Document.new do
